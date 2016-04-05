@@ -15,20 +15,11 @@ namespace StringSplitChallenge
 
         private string FirstName(string v)
         {
-            var nameArray = v.Split(' ');
-            var fullName = nameArray[0];
+            var name = v.Split(' ').ToList();
+            if(name.Count > 1)
+            name.RemoveAt(name.Count - 1);
 
-            if (nameArray.Length <= 2)
-            {
-                return nameArray[0];
-            }
-
-            for (int i = 1; i < nameArray.Length-1; i++)
-            {
-                fullName += ' ' + nameArray[i];
-            }
-
-            return fullName;
+            return string.Join(" ", name.ToArray());
         }
 
         [TestMethod]
