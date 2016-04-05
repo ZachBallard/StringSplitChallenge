@@ -16,12 +16,18 @@ namespace StringSplitChallenge
         private string FirstName(string v)
         {
             var nameArray = v.Split(' ');
+            var fullName = nameArray[0];
 
-            if (nameArray.Count() > 2)
+            if (nameArray.Length <= 2)
             {
-                return nameArray[0] + ' ' + nameArray[1];
+                return nameArray[0];
             }
-            return nameArray[0];
+
+            for (int i = 1; i < nameArray.Length-1; i++)
+            {
+                fullName = fullName + ' ' + nameArray[i];
+            }
+            return fullName;
         }
 
         [TestMethod]
@@ -34,18 +40,9 @@ namespace StringSplitChallenge
         {
             var nameArray = v.Split(' ');
 
-            if (nameArray.Count() > 2)
-            {
-                return nameArray[2];
-            }
-            if (nameArray.Count() == 1)
-            {
-                return nameArray[0];
-            }
-            else
-            {
-                return nameArray[1];
-            }
+            int i = nameArray.Length - 1;
+
+            return nameArray[i];
         }
 
         [TestMethod]
