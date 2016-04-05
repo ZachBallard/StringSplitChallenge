@@ -25,8 +25,9 @@ namespace StringSplitChallenge
 
             for (int i = 1; i < nameArray.Length-1; i++)
             {
-                fullName = fullName + ' ' + nameArray[i];
+                fullName += ' ' + nameArray[i];
             }
+
             return fullName;
         }
 
@@ -38,11 +39,8 @@ namespace StringSplitChallenge
 
         private string LastName(string v)
         {
-            var nameArray = v.Split(' ');
-
-            int i = nameArray.Length - 1;
-
-            return nameArray[i];
+            var name = v.Split(' ').ToList();
+            return name.Last();
         }
 
         [TestMethod]
